@@ -1,9 +1,3 @@
 [submodule "submodules/meson_deps"]
 	path = submodules/meson_deps
 	url = https://github.com/binRick/meson_deps
-[submodule "submodules/libmutotp"]
-	path = submodules/libmutotp
-	url = https://github.com/RunnerScrab/libmutotp
-[submodule "submodules/libutotp"]
-	path = submodules/libutotp
-	url = https://github.com/RunnerScrab/libmutotp

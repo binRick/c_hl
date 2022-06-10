@@ -1,0 +1,5 @@
+*.swp
+build
+.cache
+.nodemon.log
+*unc-back*

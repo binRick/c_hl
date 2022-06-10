@@ -34,19 +34,24 @@ SOURCE_VENV_CMD = source $(VENV_DIR)/bin/activate
 ##############################################################
 TIDIED_FILES = \
 			   hl*/*.h hl*/*.c \
-			   png*/*.h png*/*.c
+			   png*/*.h png*/*.c \
+			   ansilove*/*.h ansilove*/*.c \
+
 ##############################################################
 all: build test
 clean:
 	@rm -rf build
 test: do-clear do-test
-do-test: do-hl-test do-png-test
+do-test: do-hl-test do-png-test do-ansilove-test
 
 do-clear:
 	@clear
 
 do-png-test:
 	@./build/png-test/png-test -v | ./submodules/greatest/contrib/greenest
+
+do-ansilove-test:
+	@./build/ansilove-test/ansilove-test -v | ./submodules/greatest/contrib/greenest
 
 do-hl-test:
 	@./build/hl-test/hl-test -v | ./submodules/greatest/contrib/greenest
@@ -73,7 +78,10 @@ fix-dbg:
 	@$(SED) 's|, % d);|, %d);|g' -i $(TIDIED_FILES)
 	@$(SED) 's|, % zu);|, %zu);|g' -i $(TIDIED_FILES)
 
-tidy: uncrustify uncrustify-clean fix-dbg
+tidy: uncrustify uncrustify-clean fix-dbg add-meson-deps
+
+add-meson-deps:
+	@git add meson/deps/*/meson.build
 
 dev-all: all
 

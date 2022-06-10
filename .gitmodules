@@ -31,3 +31,6 @@
 [submodule "submodules/kat"]
 	path = submodules/kat
 	url = https://github.com/Theldus/kat
+[submodule "submodules/libansilove"]
+	path = submodules/libansilove
+	url = https://github.com/ansilove/libansilove

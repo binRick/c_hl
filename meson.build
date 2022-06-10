@@ -64,7 +64,7 @@ subdir('meson/deps/c_string_buffer')
 subdir('meson/deps/fs')
 subdir('meson/deps/c_fsio')
 subdir('meson/deps/c_timer')
-subdir('meson/deps/c_kat')
+subdir('submodules/meson_deps/meson/deps/c_kat')
 subdir('meson/deps/libansilove')
 #//////////////////////////////////////////////////////////////////////
 subdir('hl')

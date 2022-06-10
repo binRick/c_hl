@@ -56,6 +56,7 @@ subdir('meson/deps/ansicodes')
 subdir('meson/deps/bytes')
 subdir('meson/deps/c_string_buffer')
 subdir('meson/deps/fs')
+subdir('meson/deps/kat')
 #//////////////////////////////////////////////////////////////////////
 subdir('hl')
 subdir('hl-test')

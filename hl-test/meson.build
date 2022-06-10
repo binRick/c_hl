@@ -6,6 +6,7 @@ hl_include_dirs = [
 hl_test_deps = [
   greatest_dep,
   c_stringfn_dep,
+  kat_dep,
   hl_dep,
 ]
 

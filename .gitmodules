@@ -28,3 +28,6 @@
 [submodule "submodules/parson"]
 	path = submodules/parson
 	url = https://github.com/kgabis/parson
+[submodule "submodules/kat"]
+	path = submodules/kat
+	url = https://github.com/Theldus/kat

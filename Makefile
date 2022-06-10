@@ -38,8 +38,14 @@ TIDIED_FILES = \
 all: build test
 clean:
 	@rm -rf build
-test: do-test
-do-test:
+test: do-clear do-test
+do-test: do-hl-test
+
+do-clear:
+	@clear
+
+do-hl-test:
+	@./build/hl-test/hl-test -v | ./submodules/greatest/contrib/greenest
 
 do-meson: 
 	@eval cd . && {  meson build || { meson build --reconfigure || { meson build --wipe; } && meson build; }; }

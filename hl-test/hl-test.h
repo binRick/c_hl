@@ -1,4 +1,5 @@
 #pragma once
+#include "submodules/kat/include/highlight.h"
 #include "hl/hl.h"
 #include "submodules/c_stringfn/include/stringfn.h"
 #include "submodules/greatest/greatest.h"

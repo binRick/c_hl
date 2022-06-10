@@ -9,5 +9,6 @@
 #include "submodules/c_ansi/ansi-codes/ansi-codes.h"
 #include "submodules/c_stringfn/include/stringfn.h"
 #include "submodules/fs.c/fs.h"
+#include "submodules/libansilove/include/ansilove.h"
 #include "submodules/parson/parson.h"
 //////////////////////////////////////////////////////

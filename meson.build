@@ -6,6 +6,7 @@ project('c_hl', ['c'],
 )
 #############################################################
 cc = meson.get_compiler('c')
+cmake = import('cmake')
 #//***********************************************************/
 osx_ldflags = []
 deps = []
@@ -49,6 +50,9 @@ inc = include_directories(
 #//***********************************************************/
 cargs_dep = dependency('cargs',fallback:['cargs', 'cargs_dep'])
 parson_shared_dep = dependency('parson',fallback:['parson', 'parson_shared_dep'])
+gd_dep = cc.find_library('gd', required: true)
+m_dep = cc.find_library('m', required: false)
+#ansilove_dep = cmake.subproject('ansilove')
 #//////////////////////////////////////////////////////////////////////
 subdir('meson/deps/greatest')
 subdir('meson/deps/c_stringfn')
@@ -57,7 +61,7 @@ subdir('meson/deps/bytes')
 subdir('meson/deps/c_string_buffer')
 subdir('meson/deps/fs')
 subdir('meson/deps/kat')
-subdir('meson/deps/ansilove')
+subdir('meson/deps/libansilove')
 #//////////////////////////////////////////////////////////////////////
 subdir('hl')
 subdir('hl-test')

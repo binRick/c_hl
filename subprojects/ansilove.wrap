@@ -1,0 +1,4 @@
+[wrap-git]
+directory=ansilove
+url=https://github.com/ansilove/libansilove
+revision=head

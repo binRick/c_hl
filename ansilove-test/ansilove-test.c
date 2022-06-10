@@ -3,6 +3,14 @@ bool RUNNING = true;
 
 
 void do_ansilove(){
+  struct ansilove_ctx     ctx;
+  struct ansilove_options options;
+
+  ansilove_init(&ctx, &options);
+  ansilove_loadfile(&ctx, "/tmp/ansilove-test.c");
+  ansilove_ansi(&ctx, &options);
+  ansilove_savefile(&ctx, "/tmp/ansilove-test.png");
+  ansilove_clean(&ctx);
 }
 
 

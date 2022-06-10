@@ -3,3 +3,6 @@ build
 .cache
 .nodemon.log
 *unc-back*
+subprojects/*/*
+subprojects/*/
+example.png

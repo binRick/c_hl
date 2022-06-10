@@ -33,16 +33,20 @@ HL_DIR=$(DIR)/hl
 SOURCE_VENV_CMD = source $(VENV_DIR)/bin/activate
 ##############################################################
 TIDIED_FILES = \
-			   hl*/*.h hl*/*.c
+			   hl*/*.h hl*/*.c \
+			   png*/*.h png*/*.c
 ##############################################################
 all: build test
 clean:
 	@rm -rf build
 test: do-clear do-test
-do-test: do-hl-test
+do-test: do-hl-test do-png-test
 
 do-clear:
 	@clear
+
+do-png-test:
+	@./build/png-test/png-test -v | ./submodules/greatest/contrib/greenest
 
 do-hl-test:
 	@./build/hl-test/hl-test -v | ./submodules/greatest/contrib/greenest

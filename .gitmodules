@@ -40,3 +40,6 @@
 [submodule "submodules/c_kat"]
 	path = submodules/c_kat
 	url = https://github.com/binRick/c_kat
+[submodule "submodules/meson_deps"]
+	path = submodules/meson_deps
+	url = https://github.com/binRick/meson_deps

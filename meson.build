@@ -52,6 +52,8 @@ cargs_dep = dependency('cargs',fallback:['cargs', 'cargs_dep'])
 parson_shared_dep = dependency('parson',fallback:['parson', 'parson_shared_dep'])
 gd_dep = cc.find_library('gd', required: true)
 m_dep = cc.find_library('m', required: false)
+pwd_bin = find_program('pwd', required : true)
+pwd = run_command(pwd_bin, check: true).stdout().strip()
 #ansilove_dep = cmake.subproject('ansilove')
 #//////////////////////////////////////////////////////////////////////
 subdir('meson/deps/greatest')

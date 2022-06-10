@@ -1,8 +1,8 @@
 #pragma once
-#include "submodules/kat/include/highlight.h"
 #include "hl/hl.h"
 #include "submodules/c_stringfn/include/stringfn.h"
 #include "submodules/greatest/greatest.h"
+#include "submodules/kat/include/highlight.h"
 #include <ctype.h>
 #include <stdarg.h>
 #include <stdint.h>

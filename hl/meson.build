@@ -13,6 +13,7 @@ hl_deps = [
      ansi_codes_dep, 
      bytes_dep,
      c_string_buffer_dep,
+     kat_dep,
      #c_timer_dep,
 ]
 hl_lib = static_library('hl',

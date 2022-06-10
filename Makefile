@@ -38,7 +38,13 @@ TIDIED_FILES = \
 			   ansilove*/*.h ansilove*/*.c \
 
 ##############################################################
-all: build test
+all: do-reset setup build test
+setup: do-setup-kat
+do-setup-kat:
+	@$(SED) -i 's/CURRENT_THEME = ELF_DEITY/CURRENT_THEME = COLOR_8/g' ./submodules/c_kat/highlight.c
+
+do-reset:
+	@reset
 clean:
 	@rm -rf build
 test: do-clear do-test
@@ -53,11 +59,11 @@ do-png-test:
 do-ansilove-test:
 	@cp ansilove-test/ansilove-test.c /tmp/.
 	@unlink /tmp/ansilove-test.png 2>/dev/null||true
-	@./build/ansilove-test/ansilove-test -v | ./submodules/greatest/contrib/greenest
+	@cd ./build/. && ./ansilove-test/ansilove-test -v | ../submodules/greatest/contrib/greenest
 	@file /tmp/ansilove-test.png | grep PNG
 
 do-hl-test:
-	@./build/hl-test/hl-test -v | ./submodules/greatest/contrib/greenest
+	@cd ./build/. && ./hl-test/hl-test -v | ../submodules/greatest/contrib/greenest
 
 do-meson: 
 	@eval cd . && {  meson build || { meson build --reconfigure || { meson build --wipe; } && meson build; }; }
@@ -94,7 +100,9 @@ pull:
 
 dev: nodemon
 nodemon:
-	@$(PASSH) -L .nodemon.log $(NODEMON) -V -i build -w "subprojects/*.wrap" -w . -w '*/meson.build' --delay 1 -i '*/subprojects' -I  -w 'include/*.h' -w meson.build -w src -w Makefile -w loader/meson.build -w loader/src -w loader/include -i '*/embeds/*' \
+	@$(PASSH) -L .nodemon.log $(NODEMON) -V -i build \
+		-i submodules \
+		-w "subprojects/*.wrap" -w . -w '*/meson.build' --delay 1 -i '*/subprojects' -I  -w 'include/*.h' -w meson.build -w src -w Makefile -w loader/meson.build -w loader/src -w loader/include -i '*/embeds/*' \
 		-e wrap,tpl,build,sh,c,h,Makefile \
 		-x env -- bash -c 'make||true'
 

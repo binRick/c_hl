@@ -4,6 +4,8 @@ ansilove_test_srcs = [
 ansilove_include_dirs = [
 ]
 ansilove_test_deps = [
+  c_fsio_dep,
+  hl_dep,
   greatest_dep,
   ansilove_dep,
 ]

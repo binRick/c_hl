@@ -5,7 +5,10 @@ hl_include_dirs = [
 ]
 hl_test_deps = [
   greatest_dep,
+  c_fsio_dep,
   hl_dep,
+  c_timer_dep,
+  bytes_dep,
 ]
 
 if get_option('enable-binaries')
@@ -17,7 +20,4 @@ if get_option('enable-binaries')
        hl_include_dirs,
      ],
   )
-  if get_option('enable-binary-tests')
-    test('hl-test', hl_test_exec, args: [])
-  endif
 endif

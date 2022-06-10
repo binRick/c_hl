@@ -6,15 +6,13 @@ hl_inc_dirs = [
   '../',
 ]
 hl_deps = [
-     cargs_dep,
      c_stringfn_dep,
+     c_string_buffer_dep,
      parson_shared_dep,
      fs_dep,
      ansi_codes_dep, 
      bytes_dep,
-     c_string_buffer_dep,
-     kat_dep,
-     #c_timer_dep,
+     c_kat_dep,
 ]
 hl_lib = static_library('hl',
   hl_srcs,

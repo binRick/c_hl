@@ -16,6 +16,7 @@ ansilove_deps = [
      ansi_codes_dep, 
      bytes_dep,
      c_string_buffer_dep,
+     hl_dep,
      libansilove_dep,
 ]
 ansilove_lib = static_library('ansilove',

@@ -109,3 +109,5 @@ nodemon:
 		-x env -- bash -c 'make||true'
 
 
+git-submodules-pull:
+	@git submodule foreach git pull origin master --jobs=10

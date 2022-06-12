@@ -8,7 +8,7 @@ hl_inc_dirs = [
 hl_deps = [
      c_stringfn_dep,
      c_string_buffer_dep,
-     parson_shared_dep,
+     parson_dep,
      fs_dep,
      ansi_codes_dep, 
      bytes_dep,

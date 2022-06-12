@@ -30,7 +30,7 @@
 	url = https://github.com/sagiegurari/c_fsio
 [submodule "submodules/c_timer"]
 	path = submodules/c_timer
-	url = ssh://git@github.com/binRick/c_timer
+	url = https://github.com/binRick/c_timer
 [submodule "submodules/libansilove"]
 	path = submodules/libansilove
 	url = ssh://git@github.com/ansilove/libansilove
@@ -39,4 +39,16 @@
 	url = ssh://git@github.com/binRick/c_ansi
 [submodule "submodules/parson"]
 	path = submodules/parson
+	url = https://github.com/kgabis/parson
+[submodule "subprojects/cargs"]
+	path = subprojects/cargs
+	url = https://github.com/likle/cargs
+[submodule "submodules/libspng"]
+	path = submodules/libspng
+	url = https://github.com/randy408/libspng
+[submodule "subprojects/libspng"]
+	path = subprojects/libspng
+	url = https://github.com/randy408/libspng
+[submodule "subprojects/parson"]
+	path = subprojects/parson
 	url = https://github.com/kgabis/parson

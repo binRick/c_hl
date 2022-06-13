@@ -5,8 +5,8 @@ inc = [
    './',
   ),
 ]
-pwd = run_command(find_program('pwd', required : true), check: true).stdout().strip()
-meson_deps_dir = pwd+'/submodules/meson_deps'
+pwd = meson.current_source_dir()
+meson_deps_dir = join_paths(meson.current_source_dir(),'submodules/meson_deps')
 #############################################################################
 subdir('submodules/meson_deps/meson/args')
 subdir('submodules/meson_deps/meson/inc')

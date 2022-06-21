@@ -6,3 +6,6 @@ build
 subprojects/*/*
 subprojects/*/
 example.png
+.make-log-*
+.make-*log*
+.DU

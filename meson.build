@@ -2,7 +2,10 @@ project('c_hl', ['c'],default_options:['warning_level=0','c_std=gnu99'])
 cc = meson.get_compiler('c')
 inc = [
   include_directories(
-   './',
+   '.',
+   'submodules/meson_deps',
+   'submodules/meson_deps/submodules',
+   'submodules/meson_deps/submodules/c_ansi',
   ),
 ]
 pwd = meson.current_source_dir()

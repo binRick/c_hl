@@ -41,9 +41,9 @@ TIDIED_FILES = \
 all: do-reset setup build test
 git-pull:
 	@git pull --recurse-submodules
-setup: do-setup-kat
-do-setup-kat:
-	@$(SED) -i 's/CURRENT_THEME = ELF_DEITY/CURRENT_THEME = COLOR_8/g' ./submodules/c_kat/highlight.c
+setup: 
+#do-setup-kat:
+#	@$(SED) -i 's/CURRENT_THEME = ELF_DEITY/CURRENT_THEME = COLOR_8/g' ./submodules/c_kat/highlight.c
 
 do-reset:
 	@reset

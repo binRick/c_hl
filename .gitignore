@@ -9,3 +9,5 @@ example.png
 .make-log-*
 .make-*log*
 .DU
+.attic/
+.submodules/

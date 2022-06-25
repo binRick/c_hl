@@ -2,11 +2,7 @@ ansilove_srcs = [
   'ansilove.c',
 ]
 ansilove_inc_dirs = [
-  '../submodules/libansilove/include',
-  '../submodules/libansilove/src',
-  '../submodules/libansilove',
-  '../submodules',
-  '../',
+  './',
 ]
 ansilove_deps = [
      cargs_dep,

@@ -56,16 +56,16 @@ do-clear:
 	@clear
 
 do-png-test:
-	@./build/png-test/png-test -v | ./submodules/greatest/contrib/greenest
+	@./build/png-test/png-test -v
 
 do-ansilove-test:
 	@cp ansilove-test/ansilove-test.c /tmp/.
 	@unlink /tmp/ansilove-test.png 2>/dev/null||true
-	@cd ./build/. && ./ansilove-test/ansilove-test -v | ../submodules/greatest/contrib/greenest
+	@cd ./build/. && ./ansilove-test/ansilove-test -v
 	@file /tmp/ansilove-test.png | grep PNG
 
 do-hl-test:
-	@cd ./build/. && ./hl-test/hl-test -v | ../submodules/greatest/contrib/greenest
+	@cd ./build/. && ./hl-test/hl-test -v
 
 do-meson: 
 	@eval cd . && {  meson build || { meson build --reconfigure || { meson build --wipe; } && meson build; }; }

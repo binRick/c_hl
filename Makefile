@@ -49,8 +49,8 @@ do-reset:
 	@reset
 clean:
 	@rm -rf build
-test: do-clear do-test
-do-test: do-hl-test do-png-test do-ansilove-test
+test: do-clear do-test do-tests
+do-tests: do-hl-test do-png-test do-ansilove-test
 
 do-clear:
 	@clear
@@ -72,6 +72,7 @@ do-meson:
 
 do-build:
 	@eval cd . && { ninja -C build; }
+do-test:	
 	@eval cd . && { ninja test -C build -v; }
 
 build: do-meson do-build

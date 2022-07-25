@@ -4,8 +4,8 @@ static struct ansilove_options png_options = {
   .diz       = false,
   .truecolor = true,
   .icecolors = true,
-//  .font      = ANSILOVE_FONT_TERMINUS,
-//  .mode      = ANSILOVE_MODE_TRANSPARENT,
+  .font      = ANSILOVE_FONT_TERMINUS,
+  //  .mode      = ANSILOVE_MODE_TRANSPARENT,
   .columns   = 120,
 };
 
@@ -15,16 +15,6 @@ static const int load_buffer(struct ansilove_ctx *ctx, const char *CONTENT){
   ctx->buffer = (uint8_t *)CONTENT;
   return(0);
 }
-
-#define SET_OPTIONS()    { do {                                          \
-                             options->truecolor = png_options.truecolor; \
-                             options->dos       = png_options.dos;       \
-                             options->diz       = png_options.diz;       \
-                             options->font      = png_options.font;      \
-                             options->icecolors = png_options.icecolors; \
-                             options->columns   = png_options.columns;   \
-                             options->mode      = png_options.mode;      \
-                           } while (0); }
 
 
 void hl_str_save(const char *CONTENT, const char *DST){
@@ -39,8 +29,14 @@ void hl_str_save(const char *CONTENT, const char *DST){
   ctx->maplen = ctx->length = strlen(content);
   ctx->buffer = (uint8_t *)content;
 
+  options->truecolor = png_options.truecolor;
+  options->dos       = png_options.dos;
+  options->diz       = png_options.diz;
+  options->font      = png_options.font;
+  options->icecolors = png_options.icecolors;
+  options->columns   = png_options.columns;
+  options->mode      = png_options.mode;
 
-  SET_OPTIONS();
   ansilove_ansi(ctx, options);
   ansilove_savefile(ctx, DST);
 
@@ -57,7 +53,15 @@ void hl_load_save(const char *SRC, const char *DST){
 
   ansilove_init(&ctx, options);
   ansilove_loadfile(&ctx, SRC);
-  SET_OPTIONS();
+
+  options->truecolor = png_options.truecolor;
+  options->dos       = png_options.dos;
+  options->diz       = png_options.diz;
+  options->font      = png_options.font;
+  options->icecolors = png_options.icecolors;
+  options->columns   = png_options.columns;
+  options->mode      = png_options.mode;
+
   ansilove_ansi(&ctx, options);
   ansilove_savefile(&ctx, DST);
   ansilove_clean(&ctx);

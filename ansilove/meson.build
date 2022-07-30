@@ -9,6 +9,7 @@ ansilove_deps = [
      c_stringfn_dep,
      parson_dep,
      fs_dep,
+     gd_dep,
      ansi_codes_dep, 
      bytes_dep,
      c_string_buffer_dep,

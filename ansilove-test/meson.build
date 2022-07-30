@@ -7,6 +7,7 @@ ansilove_test_deps = [
   c_fsio_dep,
   hl_dep,
   greatest_dep,
+  gd_dep,
   ansilove_dep,
 ]
 

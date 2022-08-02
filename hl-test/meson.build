@@ -4,7 +4,7 @@ hl_test_srcs = [
 hl_include_dirs = [
 ]
 hl_test_deps = [
-  greatest_dep,
+  c_greatest_dep,
   c_fsio_dep,
   hl_dep,
   c_timer_dep,

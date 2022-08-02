@@ -4,7 +4,7 @@ png_test_srcs = [
 png_include_dirs = [
 ]
 png_test_deps = [
-  greatest_dep,
+  c_greatest_dep,
   png_dep,
 ]
 

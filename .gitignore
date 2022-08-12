@@ -12,3 +12,4 @@ example.png
 .attic/
 .submodules/
 loc.sh
+submodules/c_deps

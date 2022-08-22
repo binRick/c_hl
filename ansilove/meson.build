@@ -16,7 +16,7 @@ ansilove_deps = [
      hl_dep,
      libansilove_dep,
 ]
-ansilove_lib = static_library('ansilove',
+ansilove_lib = library('ansilove',
   ansilove_srcs,
   install: false,
   dependencies: ansilove_deps,

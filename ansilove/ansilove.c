@@ -9,13 +9,11 @@ static struct ansilove_options png_options = {
   .columns   = 120,
 };
 
-
 static const int load_buffer(struct ansilove_ctx *ctx, const char *CONTENT){
   ctx->maplen = ctx->length = strlen(CONTENT);
   ctx->buffer = (uint8_t *)CONTENT;
   return(0);
 }
-
 
 void hl_str_save(const char *CONTENT, const char *DST){
   struct ansilove_options *options = malloc(sizeof(struct ansilove_options));
@@ -46,7 +44,6 @@ void hl_str_save(const char *CONTENT, const char *DST){
   free(options);
 }
 
-
 void hl_load_save(const char *SRC, const char *DST){
   struct ansilove_ctx     ctx;
   struct ansilove_options *options = malloc(sizeof(struct ansilove_options));
@@ -66,7 +63,6 @@ void hl_load_save(const char *SRC, const char *DST){
   ansilove_savefile(&ctx, DST);
   ansilove_clean(&ctx);
 }
-
 
 int init_ansilove(){
   return(0);

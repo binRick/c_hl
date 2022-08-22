@@ -12,7 +12,6 @@
 /////////////////////////////////////////////////////
 const char TEST_SRCS[1024 * 32][32];
 
-
 /////////////////////////////////////////////////////
 static void do_hl_str_test(const char *FILE_NAME, const char *CONTENT){
   ct_start(NULL);
@@ -45,9 +44,7 @@ static void do_hl_str_test(const char *FILE_NAME, const char *CONTENT){
           );
 }
 
-
 /////////////////////////////////////////////////////
-
 
 void load_src(int SRC_ID, const char *SRC_FILE){
   sprintf(&TEST_SRCS[SRC_ID], "%s", fsio_read_text_file(SRC_FILE));
@@ -59,7 +56,6 @@ void load_src(int SRC_ID, const char *SRC_FILE){
   do_hl_str_test(SRC_FILE, &TEST_SRCS[SRC_ID]);
 }
 
-
 SUITE(load_srcs) {
   load_src(2, TEST_SRC_FILE_2);
   load_src(3, TEST_SRC_FILE_3);
@@ -70,9 +66,7 @@ SUITE(load_srcs) {
   PASS();
 }
 
-
 GREATEST_MAIN_DEFS();
-
 
 int do_test(int argc, char **argv) {
   GREATEST_MAIN_BEGIN();
@@ -80,7 +74,6 @@ int do_test(int argc, char **argv) {
   GREATEST_MAIN_END();
   return(0);
 }
-
 
 int main(int argc, char **argv) {
   (void)argc; (void)argv;

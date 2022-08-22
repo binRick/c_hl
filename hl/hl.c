@@ -2,7 +2,6 @@
 ///////////////////////////////////
 static void hl_init();
 
-
 static int hl_get_max_width(const char *bytes, size_t len){
   int           max_width = 0;
   unsigned char *b        = (unsigned char *)bytes;
@@ -46,7 +45,6 @@ static int hl_get_max_width(const char *bytes, size_t len){
   return(strlen(STRIPPED));
 } /* hl_get_max_width */
 
-
 ///////////////////////////////////
 int hl_max_columns(const char *CONTENT){
   int                    cols  = 120;
@@ -63,7 +61,6 @@ int hl_max_columns(const char *CONTENT){
   fprintf(stderr, "MAX WIDTH:%d\n", cols);
   return(cols);
 }
-
 
 char *hl_str(const char *CONTENT){
   if (highlight_init(NULL) < 0) {
@@ -93,7 +90,6 @@ char *hl_str(const char *CONTENT){
   return(HIGHLIGHTED_CONTENT);
 }
 
-
 void do_kat_test_0(){
   char *line;
 
@@ -118,11 +114,9 @@ void do_kat_test_0(){
   highlight_finish();
 }
 
-
 int init_hl(){
   return(0);
 }
-
 
 static void hl_init(){
   if (highlight_init(NULL) < 0) {
@@ -130,4 +124,3 @@ static void hl_init(){
     exit(1);
   }
 }
-

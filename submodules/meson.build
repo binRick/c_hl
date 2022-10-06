@@ -1,6 +1,7 @@
 subdir('c_deps/meson/args')
 subdir('c_deps/meson/inc')
 #############################################################################
+subdir('c_deps/meson/deps/png')
 subdir('c_deps/meson/deps/gd')
 subdir('c_deps/meson/deps/ansicodes')
 subdir('c_deps/meson/deps/parson')

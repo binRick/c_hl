@@ -1,13 +1,11 @@
 #include "hl.h"
 ///////////////////////////////////
-static void hl_init();
 
 static int hl_get_max_width(const char *bytes, size_t len){
-  int           max_width = 0;
   unsigned char *b        = (unsigned char *)bytes;
   char          *STRIPPED = malloc(strlen(b));
 
-  int           i;
+  size_t        i;
 
   for (i = 0; i < len; /* none */) {
     if (b[i] < 0x20) {       // C0
@@ -37,10 +35,10 @@ static int hl_get_max_width(const char *bytes, size_t len){
       break;
     }
   }
-  fprintf(stderr, "i:%d|b len:%lu|s:%.*s|\n", i, strlen(b), i, b);
-  sprintf(STRIPPED, "%.*s\n", i, b);
+  fprintf(stderr, "i:%lu|b len:%lu|s:%.*s|\n", i, strlen(b), (int)i, b);
+  sprintf(STRIPPED, "%.*s\n", (int)i, b);
   if (i > 0 && strlen(b) > 0) {
-    fprintf(stderr, "%.*s\n", i, b);
+    fprintf(stderr, "%.*s\n", (int)i, b);
   }
   return(strlen(STRIPPED));
 } /* hl_get_max_width */
@@ -116,11 +114,4 @@ void do_kat_test_0(){
 
 int init_hl(){
   return(0);
-}
-
-static void hl_init(){
-  if (highlight_init(NULL) < 0) {
-    fprintf(stderr, "Unable to initialize the highlight!\n");
-    exit(1);
-  }
 }

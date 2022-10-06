@@ -14,7 +14,7 @@ hl_deps = [
      bytes_dep,
      c_kat_dep,
 ]
-hl_lib = static_library('hl',
+hl_lib = library('hl',
   hl_srcs,
   install: false,
   dependencies: hl_deps,

@@ -5,7 +5,7 @@ ansilove_include_dirs = [
 ]
 ansilove_test_deps = [
   c_fsio_dep,
-  hl_dep,
+  hl_dep,ansilove_dep,libansilove_dep,
   c_greatest_dep,
   c_stringfn_dep,
   gd_dep,

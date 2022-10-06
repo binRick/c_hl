@@ -9,7 +9,7 @@ static struct ansilove_options png_options = {
   .columns   = 120,
 };
 
-static const int load_buffer(struct ansilove_ctx *ctx, const char *CONTENT){
+__attribute__((unused))static int load_buffer(struct ansilove_ctx *ctx, const char *CONTENT){
   ctx->maplen = ctx->length = strlen(CONTENT);
   ctx->buffer = (uint8_t *)CONTENT;
   return(0);
@@ -19,8 +19,8 @@ void hl_str_save(const char *CONTENT, const char *DST){
   struct ansilove_options *options = malloc(sizeof(struct ansilove_options));
   struct ansilove_ctx     *ctx     = malloc(sizeof(struct ansilove_ctx));
 
-  int                     ctx_res  = ansilove_init(ctx, options);
-  char                    *content = malloc(strlen(CONTENT) + 32);
+  ansilove_init(ctx, options);
+  char *content = malloc(strlen(CONTENT) + 32);
 
   sprintf(content, "%s", CONTENT);
 

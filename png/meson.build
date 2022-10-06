@@ -15,7 +15,7 @@ png_deps = [
      c_string_buffer_dep,
      #c_timer_dep,
 ]
-png_lib = static_library('png',
+png_lib = library('png',
   png_srcs,
   install: false,
   dependencies: png_deps,

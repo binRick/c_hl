@@ -13,3 +13,5 @@ example.png
 .submodules/
 loc.sh
 submodules/c_deps
+.meson.build*.log
+.meson-build*.log

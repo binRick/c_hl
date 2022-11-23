@@ -1,3 +1,4 @@
+#include "c_fsio/include/fsio.h"
 #include "hl.h"
 ///////////////////////////////////
 
@@ -8,38 +9,33 @@ static int hl_get_max_width(const char *bytes, size_t len){
   size_t        i;
 
   for (i = 0; i < len; /* none */) {
-    if (b[i] < 0x20) {       // C0
+    if (b[i] < 0x20)         // C0
       break;
-    }else if (b[i] < 0x80) { // ASCII
+    else if (b[i] < 0x80)    // ASCII
       i++;
-    }else if (b[i] < 0xa0) { // C1
+    else if (b[i] < 0xa0)    // C1
       break;
-    }else if (b[i] < 0xc0) { // UTF-8 continuation
+    else if (b[i] < 0xc0)    // UTF-8 continuation
       break;
-    }else if (b[i] < 0xe0) { // UTF-8 2-byte
-      if (len < i + 2) {
+    else if (b[i] < 0xe0) {  // UTF-8 2-byte
+      if (len < i + 2)
         break;
-      }
       i += 2;
     }else if (b[i] < 0xf0) { // UTF-8 3-byte
-      if (len < i + 3) {
+      if (len < i + 3)
         break;
-      }
       i += 3;
     }else if (b[i] < 0xf8) { // UTF-8 4-byte
-      if (len < i + 4) {
+      if (len < i + 4)
         break;
-      }
       i += 4;
-    }else {                 // otherwise invalid
+    }else                   // otherwise invalid
       break;
-    }
   }
   fprintf(stderr, "i:%lu|b len:%lu|s:%.*s|\n", i, strlen(b), (int)i, b);
   sprintf(STRIPPED, "%.*s\n", (int)i, b);
-  if (i > 0 && strlen(b) > 0) {
+  if (i > 0 && strlen(b) > 0)
     fprintf(stderr, "%.*s\n", (int)i, b);
-  }
   return(strlen(STRIPPED));
 } /* hl_get_max_width */
 
@@ -51,9 +47,8 @@ int hl_max_columns(const char *CONTENT){
   for (int i = 0; i < LINES.count; i++) {
     int WIDTH = hl_get_max_width(LINES.strings[i], strlen(LINES.strings[i]));
     fprintf(stderr, "WIDTH:%d\n", WIDTH);
-    if (WIDTH > cols) {
+    if (WIDTH > cols)
       cols = WIDTH;
-    }
   }
   stringfn_release_strings_struct(LINES);
   fprintf(stderr, "MAX WIDTH:%d\n", cols);
@@ -73,9 +68,8 @@ char *hl_str(const char *CONTENT){
   for (int i = 0; i < LINES.count; i++) {
     line = highlight_line(LINES.strings[i], line, strlen(LINES.strings[i]));
     stringbuffer_append_string(SB, line);
-    if (i <= LINES.count - 2) {
+    if (i <= LINES.count - 2)
       stringbuffer_append_string(SB, "\n");
-    }
   }
   highlight_free(line);
   highlight_finish();
@@ -84,8 +78,11 @@ char *hl_str(const char *CONTENT){
   stringfn_release_strings_struct(LINES);
   stringbuffer_release(SB);
 
-  fprintf(stderr, "%s\n", HIGHLIGHTED_CONTENT);
   return(HIGHLIGHTED_CONTENT);
+}
+
+char *hl_highlight_path(const char *path){
+  return(hl_str(fsio_read_text_file(path)));
 }
 
 void do_kat_test_0(){

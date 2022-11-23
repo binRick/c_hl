@@ -10,6 +10,10 @@ inc = [
    'submodules/c_deps',
    'submodules/c_deps/submodules/c_ansi',
    'submodules/c_deps/submodules',
+   'submodules/c_deps/submodules/reproc',
+   'submodules/c_deps/submodules/reproc/reproc',
+   'submodules/c_deps/submodules/reproc/reproc/include',
+   'submodules/c_deps/submodules/reproc/reproc/include/reproc',
    'submodules/c_deps/meson/deps/libansilove',
    'submodules/c_deps/meson/deps',
    '.',
@@ -21,12 +25,14 @@ subdir('submodules')
 subdir('submodules/c_deps/meson/deps/c_kat')
 subdir('submodules/c_deps/meson/deps/libansilove')
 #//////////////////////////////////////////////////////////////////////
+subdir('bat')
 subdir('hl')
-subdir('hl-test')
 #//////////////////////////////////////////////////////////////////////
 subdir('png')
-subdir('png-test')
 #//////////////////////////////////////////////////////////////////////
 subdir('ansilove')
-subdir('ansilove-test')
 #//////////////////////////////////////////////////////////////////////
+subdir('hl-cli')
+subdir('hl-test')
+subdir('png-test')
+subdir('ansilove-test')

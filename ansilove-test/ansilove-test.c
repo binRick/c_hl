@@ -11,6 +11,7 @@
 #include "ansilove/ansilove.h"
 #include "hl/hl.h"
 ////////////////////////////////
+#include "module/require.h"
 #include "submodules/c_fsio/include/fsio.h"
 #include "submodules/c_greatest/greatest/greatest.h"
 #include "submodules/c_stringfn/include/stringfn.h"
@@ -18,8 +19,10 @@
 bool RUNNING = true;
 
 void do_ansilove_str_test_0(){
-  char *SRC_FILE   = "../ansilove/ansilove.c";
-  char *HL_CONTENT = hl_str(fsio_read_text_file(SRC_FILE));
+  char *SRC_FILE = "../ansilove/ansilove.c";
+  char *HL_CONTENT;
+
+  //= hl_str(fsio_read_text_file(SRC_FILE));
 
   hl_str_save(HL_CONTENT, "/tmp/ansilove_str_0_HL.png");
 }
@@ -63,10 +66,22 @@ TEST t_ansilove_file_tests(void) {
   PASS();
 }
 
+TEST t_ansilove_module_0(void){
+  PASS();
+}
+
+TEST t_ansilove_module_1(void){
+  PASS();
+}
+
 SUITE(s_ansilove) {
   RUN_TEST(t_ansilove_str_load_tests);
   RUN_TEST(t_ansilove_save_load_tests);
   RUN_TEST(t_ansilove_file_tests);
+}
+SUITE(s_ansilove_module) {
+  RUN_TEST(t_ansilove_module_0);
+  RUN_TEST(t_ansilove_module_1);
 }
 
 GREATEST_MAIN_DEFS();
@@ -74,5 +89,6 @@ GREATEST_MAIN_DEFS();
 int main(int argc, char **argv) {
   GREATEST_MAIN_BEGIN();
   RUN_SUITE(s_ansilove);
+  RUN_SUITE(s_ansilove_module);
   GREATEST_MAIN_END();
 }

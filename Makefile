@@ -26,3 +26,7 @@ do-ansilove-test:
 do-hl-test:
 	@cd ./build/. && ./hl-test/hl-test -v
 
+
+hl-include-h:
+	@./scripts/random-c-files.sh > .objs.json
+	@j2 -f json -o .hl-i.h scripts/hl_include.h.j2 .objs.json && cat .hl-i.h

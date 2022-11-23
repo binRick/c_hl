@@ -22,20 +22,20 @@
 
 #include "../color.h"
 
-#define ANSI_MIN 16
-#define ANSI_MAX 256
-#define ANSI_MAP_OFFSET ANSI_MIN
-#define ANSI_MAP_LEN (ANSI_MAX - ANSI_MAP_OFFSET)
+#define ANSI_MIN           16
+#define ANSI_MAX           256
+#define ANSI_MAP_OFFSET    ANSI_MIN
+#define ANSI_MAP_LEN       (ANSI_MAX - ANSI_MAP_OFFSET)
 
 extern const RGBColor ansi_to_rgb_map[];
 extern const LabColor ansi_to_lab_map[];
 
 static inline RGBColor ansi_to_rgb(int ansi_num) {
-    return ansi_to_rgb_map[ansi_num - ANSI_MAP_OFFSET];
+  return(ansi_to_rgb_map[ansi_num - ANSI_MAP_OFFSET]);
 }
 
 static inline LabColor ansi_to_lab(int ansi_num) {
-    return ansi_to_lab_map[ansi_num - ANSI_MAP_OFFSET];
+  return(ansi_to_lab_map[ansi_num - ANSI_MAP_OFFSET]);
 }
 
 #endif

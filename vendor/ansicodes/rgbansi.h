@@ -31,7 +31,7 @@
 
 //////////////////////////////////////////////////////////
 
-#define SEQUENCE "printf \"\
+#define SEQUENCE                  "printf \"\
 \\033]4;0;#$(echo $color00)\\033\\ \
 \\033]4;1;#$(echo $color01)\\033\\ \
 \\033]4;2;#$(echo $color02)\\033\\ \
@@ -53,7 +53,7 @@
 \\033]12;#$(echo $cursor)\\033\\ \
 \\033[21D\""
 
-#define PALETTE "\
+#define PALETTE                   "\
 \033[48;5;0m  \033[0m\
 \033[48;5;1m  \033[0m\
 \033[48;5;2m  \033[0m\
@@ -70,7 +70,6 @@
 \033[48;5;13m  \033[0m\
 \033[48;5;14m  \033[0m\
 \033[48;5;15m  \033[0m\n"
-
 
 /***********************/// Control Code CONSTANTS
 #define C256_FG_CODE              "\x1b[38;5;%dm"
@@ -124,15 +123,15 @@ static const char *HEX_VALUES = "0123456789ABCDEF";
 #define CURSOR_HIDE()      printf(ESCAPE "[?25l")
 #define CURSOR_SHOW()      printf(ESCAPE "[?25h")
 //////////////////////////////////////////////////////////
-typedef struct ColorInfo ColorInfo;
-typedef struct Ansi_t Ansi_t;
-typedef struct CSEQ CSEQ;
-typedef struct SEQ SEQ;
+typedef struct ColorInfo   ColorInfo;
+typedef struct Ansi_t      Ansi_t;
+typedef struct CSEQ        CSEQ;
+typedef struct SEQ         SEQ;
 struct Ansi_t {
   const char *fg;
   const char *bg;
 };
-typedef struct RGB_t RGB_t;
+typedef struct RGB_t       RGB_t;
 struct RGB_t {
   uint32_t red;
   uint32_t green;
@@ -140,8 +139,8 @@ struct RGB_t {
   uint32_t alpha;
 };
 struct SEQ {
- const   char *fg;
-const    char *bg;
+  const char *fg;
+  const char *bg;
 };
 
 struct CSEQ {
@@ -155,12 +154,12 @@ struct RGB {
 };
 
 struct ColorInfo {
-  struct RGB_t *rgb;
+  struct RGB_t  *rgb;
   struct Ansi_t *ansi;
   struct Ansi_t *truecolor;
-  const char *hex;
-  const char *name;
-  int ansicode;
+  const char    *hex;
+  const char    *name;
+  int           ansicode;
 };
 struct hexstring { char hex[7]; };
 struct RGB_Double { double r;   double g;   double b; };
@@ -221,4 +220,3 @@ float rgb_to_hsv_value(struct RGB rgb);
 float rgb_to_hsv_saturation(struct RGB rgb);
 
 //////////////////////////////////////////////////////////
-

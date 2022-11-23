@@ -15,6 +15,7 @@
 //////////////////////////////////////////////////////
 void do_kat_test_0();
 char *hl_str(const char *CONTENT);
+char *hl_highlight_path(const char *path);
 int hl_max_columns(const char *CONTENT);
 
 //////////////////////////////////////////////////////

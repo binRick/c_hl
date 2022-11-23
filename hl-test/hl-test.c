@@ -1,7 +1,13 @@
+#include "ansi-codes/ansi-codes.h"
+#include "bat/bat.h"
+#include "bytes/bytes.h"
 #include "hl-test.h"
-#define MIN_SRC_LEN        10
+#include <pthread.h>
+#define MIN_SRC_LEN    10
 #define X_STR(STR)    #STR
 #define X_FXN(STR)    X_STR(STR)
+#include "c_stringfn/include/stringfn.h"
+#include "libansilove/include/ansilove.h"
 #define TEST_SRC_FILE_1    "../png/png.c"
 #define TEST_SRC_FILE_2    "../hl-test/hl-test.c"
 #define TEST_SRC_FILE_3    "../hl-test/hl-test.h"
@@ -10,13 +16,26 @@
 #define TEST_SRC_FILE_6    "../ansilove/ansilove.c"
 #define TEST_SRC_FILE_7    "../ansilove/ansilove.h"
 /////////////////////////////////////////////////////
-const char TEST_SRCS[1024 * 32][32];
+const char             TEST_SRCS[1024 * 32][32];
+static size_t          str_id = 0;
+static pthread_mutex_t str_id_mutex;
 
 /////////////////////////////////////////////////////
 static void do_hl_str_test(const char *FILE_NAME, const char *CONTENT){
   ct_start(NULL);
-  char *HIGHLIGHTED_CONTENT = hl_str(CONTENT);
-  char *DUR                 = ct_stop("");
+  char                    *HIGHLIGHTED_CONTENT = "xx";//hl_str(CONTENT);
+  char                    *DUR                 = ct_stop("");
+  struct ansilove_ctx     ctx;
+  struct ansilove_options options;
+  char                    *lf, *pf;
+//  asprintf(&pf,"/tmp/%s",
+  //powerlog
+
+  ansilove_init(&ctx, &options);
+  ansilove_loadfile(&ctx, lf);
+  ansilove_ansi(&ctx, &options);
+  ansilove_savefile(&ctx, pf);
+  ansilove_clean(&ctx);
 
   fprintf(stdout,
           AC_RESETALL AC_RED_BLACK AC_ITALIC
@@ -40,9 +59,9 @@ static void do_hl_str_test(const char *FILE_NAME, const char *CONTENT){
           bytes_to_string(strlen(CONTENT)),
           bytes_to_string(strlen(HIGHLIGHTED_CONTENT)),
           DUR,
-          HIGHLIGHTED_CONTENT
+          stringfn_substring(HIGHLIGHTED_CONTENT, 0, 32)
           );
-}
+} /* do_hl_str_test */
 
 /////////////////////////////////////////////////////
 

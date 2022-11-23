@@ -5,11 +5,9 @@
 #define AC_SAVE_PALETTE       "\x1b]30001\\"
 #define AC_RESTORE_PALETTE    "\x1b]30101\\"
 
-
 #define AC_RESETALL           "\x1b[0m"
 #define ansistr(s)      s AC_RESETALL
 #define ansistrln(s)    s AC_RESETALL "\n"
-
 
 #define AC_BLACK                   "\x1b[30m"
 #define AC_BLACK_BLACK             "\x1b[30m\x1b[40m"
@@ -29,7 +27,6 @@
 #define AC_BRIGHT_BLACK_MAGENTA    "\x1b[30;1m\x1b[45m"
 #define AC_BRIGHT_BLACK_CYAN       "\x1b[30;1m\x1b[46m"
 #define AC_BRIGHT_BLACK_WHITE      "\x1b[30;1m\x1b[47m"
-
 
 // Red AC_foreground
 
@@ -52,7 +49,6 @@
 #define AC_BRIGHT_RED_CYAN       "\x1b[31;1m\x1b[46m"
 #define AC_BRIGHT_RED_WHITE      "\x1b[31;1m\x1b[47m"
 
-
 // Green AC_foreground
 
 #define AC_GREEN                   "\x1b[32m"
@@ -73,7 +69,6 @@
 #define AC_BRIGHT_GREEN_MAGENTA    "\x1b[32;1m\x1b[45m"
 #define AC_BRIGHT_GREEN_CYAN       "\x1b[32;1m\x1b[46m"
 #define AC_BRIGHT_GREEN_WHITE      "\x1b[32;1m\x1b[47m"
-
 
 // Yellow AC_foreground
 
@@ -96,7 +91,6 @@
 #define AC_BRIGHT_YELLOW_CYAN       "\x1b[33;1m\x1b[46m"
 #define AC_BRIGHT_YELLOW_WHITE      "\x1b[33;1m\x1b[47m"
 
-
 // Blue AC_foreground
 
 #define AC_BLUE                   "\x1b[34m"
@@ -117,7 +111,6 @@
 #define AC_BRIGHT_BLUE_MAGENTA    "\x1b[34;1m\x1b[45m"
 #define AC_BRIGHT_BLUE_CYAN       "\x1b[34;1m\x1b[46m"
 #define AC_BRIGHT_BLUE_WHITE      "\x1b[34;1m\x1b[47m"
-
 
 // Magenta AC_foreground
 
@@ -140,7 +133,6 @@
 #define AC_BRIGHT_MAGENTA_CYAN       "\x1b[35;1m\x1b[46m"
 #define AC_BRIGHT_MAGENTA_WHITE      "\x1b[35;1m\x1b[47m"
 
-
 // Cyan AC_foreground
 
 #define AC_CYAN                   "\x1b[36m"
@@ -161,7 +153,6 @@
 #define AC_BRIGHT_CYAN_MAGENTA    "\x1b[36;1m\x1b[45m"
 #define AC_BRIGHT_CYAN_CYAN       "\x1b[36;1m\x1b[46m"
 #define AC_BRIGHT_CYAN_WHITE      "\x1b[36;1m\x1b[47m"
-
 
 // White AC_foreground
 
@@ -192,7 +183,6 @@
 
 #define AC_FG8(i)    "\x1b[38;5;"#i "m"
 #define AC_BG8(i)    "\x1b[48;5;"#i "m"
-
 
 //
 // 24-bit colour macros
@@ -251,17 +241,14 @@
 ACDEF void
 AC_EnableANSICodes(void);
 
-
 #if defined (WIN32) || defined (_WIN32)
 #define AC__WIN32
 #endif
-
 
 #ifdef IMPLEMENT_ANSICODES
 
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
-
 
 void AC_EnableANSICodes(void) {
 #ifdef AC__WIN32

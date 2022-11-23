@@ -19,28 +19,28 @@
 
 #include "ansicode.h"
 
-#define C256_FG_CODE "\x1b[38;5;%dm"
-#define C256_BG_CODE "\x1b[48;5;%dm"
-#define TRUECOLOR_FG_CODE "\x1b[38;2;%d;%d;%dm"
-#define TRUECOLOR_BG_CODE "\x1b[48;2;%d;%d;%dm"
-#define RESET_CODE "\x1b[0m"
+#define C256_FG_CODE         "\x1b[38;5;%dm"
+#define C256_BG_CODE         "\x1b[48;5;%dm"
+#define TRUECOLOR_FG_CODE    "\x1b[38;2;%d;%d;%dm"
+#define TRUECOLOR_BG_CODE    "\x1b[48;2;%d;%d;%dm"
+#define RESET_CODE           "\x1b[0m"
 
 void ansi_256_fg(FILE *file, int color) {
-    fprintf(file, C256_FG_CODE, color);
+  fprintf(file, C256_FG_CODE, color);
 }
 
 void ansi_256_bg(FILE *file, int color) {
-    fprintf(file, C256_BG_CODE, color);
+  fprintf(file, C256_BG_CODE, color);
 }
 
 void ansi_truecolor_fg(FILE *file, int r, int g, int b) {
-    fprintf(file, TRUECOLOR_FG_CODE, r, g, b);
+  fprintf(file, TRUECOLOR_FG_CODE, r, g, b);
 }
 
 void ansi_truecolor_bg(FILE *file, int r, int g, int b) {
-    fprintf(file, TRUECOLOR_BG_CODE, r, g, b);
+  fprintf(file, TRUECOLOR_BG_CODE, r, g, b);
 }
 
 void ansi_reset(FILE *file) {
-    fputs(RESET_CODE, file);
+  fputs(RESET_CODE, file);
 }

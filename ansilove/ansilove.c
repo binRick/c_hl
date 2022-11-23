@@ -1,17 +1,34 @@
-#include "ansilove.h"
+#include "ansilove/ansilove.h"
+#include "msf_gif/msf_gif.h"
+//#include "vips/vips.h"
+#include "qoi/qoi.h"
+#include "qoir/src/qoir.h"
+struct {
+  int width;
+}                              hl_private_t;
+
 static struct ansilove_options png_options = {
   .dos       = false,
   .diz       = false,
   .truecolor = true,
   .icecolors = true,
   .font      = ANSILOVE_FONT_TERMINUS,
-  //  .mode      = ANSILOVE_MODE_TRANSPARENT,
+  .mode      = ANSILOVE_MODE_TRANSPARENT,
   .columns   = 120,
 };
 
 __attribute__((unused))static int load_buffer(struct ansilove_ctx *ctx, const char *CONTENT){
   ctx->maplen = ctx->length = strlen(CONTENT);
   ctx->buffer = (uint8_t *)CONTENT;
+  return(0);
+}
+
+void hl_deinit(module(hl) *exports) {
+}
+
+int hl_init(module(hl) *exports) {
+  clib_module_init(hl, exports);
+//  exports->priv=calloc(1,sizeof(struct hl_private_t));
   return(0);
 }
 
